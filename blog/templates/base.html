@@ -1,0 +1,126 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock title %}</title>
+
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'common.css' %}">
+    <script src="{% static 'jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+	
+</head>
+<style type="text/css">
+div.banner4 {
+    background: url({% block banner %}{% endblock banner %}) no-repeat center ;
+    background-attachment: scroll;
+    height: 53px;
+    padding-top: 197px;
+    margin-top: -3px;
+}
+
+div.sec3 {
+    background: url({% static 'images/bg_bottom.jpg' %}) center no-repeat ;
+
+}
+
+div.ljdh {
+    margin-top: -30px;
+}
+</style>
+
+<body>
+<!-- 导航条 -->	
+	<div id="header">
+	    <nav class="navbar navbar-default navbar-fixed-top">
+	        <div class="container">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" style="padding:0 0 0 15px;" href="{% url 'blog:index' %}"><img alt="Brand" style="max-width:130px;" src="{% static 'images/logo.png' %}"></a>
+	            </div>
+	            <!-- Collect the nav links, forms, and other content for toggling -->
+	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                <ul class="nav navbar-nav navbar-right">
+                	    <li class="{% block nav_home_active %}{% endblock %}"><a href="{% url 'blog:index' %}">首页</a></li>
+                	    <li class="{% block nav_news_active %}{% endblock %}"><a href="{% url 'blog:news' %}">新闻</a></li>
+                	    <li class="{% block nav_product_active %}{% endblock %}"><a href="{% url 'blog:product' %}">产品</a></li>	
+	                </ul>
+	            </div>
+	            <!-- /.navbar-collapse -->
+	        </div>
+	        <!-- /.container-fluid -->
+	    </nav>
+	</div>
+<!-- 导航条 --> 
+<div class="jumbotron banner4">
+  <div class="container">
+  </div>
+</div>
+<!-- 路径导航 -->
+    <div class="container ljdh">
+        <div class="row">
+            <div class="col-sm-12">
+                <ol class="breadcrumb" style="margin-top: 10px; margin-bottom: 10px;">
+                    <li><a href="{% url 'blog:index' %}">首页</a></li>
+                    {% block path %}{% endblock path %}            
+                </ol>
+            </div>
+        </div>
+    </div>    
+<!-- 路径导航 -->
+<!-- mainbody -->
+    <div class="main-container">
+        <div class="container">
+            <div class="row main-container-row" style="position: relative">
+                {% block main %}{% endblock main %}           
+            </div>
+        </div>
+    </div>
+<!-- mainbody -->
+<!-- 通用页脚 -->
+    <div id="footer" >
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 footer-item">
+                    <div class="footer-list">
+                        <h4>友情链接</h4>
+                        <ul>
+                            <li><a href="http://samr.saic.gov.cn/">国家食品药品监督管理总局***********</a></li>
+                            <li><a href="http://www.zjfda.gov.cn/">浙江省食品药品监督管理局 </a></li>
+                            <li><a href="http://www.nhfpc.gov.cn/">国家卫计委 </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 footer-item footer-item-last">
+                    <div class="footer-contact">
+                        <h2><img src="{% static 'images/pc-footer-phone.png' %}">18257562567</h2>
+                        <h2><img src="{% static 'images/pc-footer-phone.png' %}">1242910812</h2>
+                        <h2><img src="{% static 'images/pc-footer-phone.png' %}">传真*****</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>Copyright © ******************************** <a target="_blank" href="#">备案号******</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 通用页脚 -->
+
+</body>
+</html>
