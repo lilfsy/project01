@@ -1,17 +1,19 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
-from .models import Post, Product
+from .models import Post, Product, Category
 
 # Create your views here.
 def index(request):
-	post_list = Post.objects.all().order_by('-created_time')[0:3]
+	cate = get_object_or_404(Category, pk=4) #pk4对应分类a_news
+	post_list = Post.objects.filter(category=cate).order_by('-created_time')[0:3]
 	return render(request,'blog/index.html',context={
 		              'post_list':post_list,})
 
 
 
 def news(request):
-	posts_all_list = Post.objects.all()
+	cate = get_object_or_404(Category, pk=4) #pk4对应分类a_news
+	posts_all_list = Post.objects.filter(category=cate).order_by('-created_time')
 	paginator = Paginator(posts_all_list,10)#每10篇分页
 	page_num = request.GET.get('page') # 获取url的页面参数（get请求）
 	try:
@@ -55,3 +57,27 @@ def product(request):
 
 	return render(request,'blog/product.html',context)
 
+
+def summary(request):
+	cate = get_object_or_404(Category, pk=5) #pk5对应分类公司简介
+	post = Post.objects.filter(category=cate)[0]
+	context = {}
+	context['post'] = post
+	return render(request, 'blog/summary.html', context)
+
+
+def honour(request):
+	cate = get_object_or_404(Category, pk=6) #pk6对应分类企业荣誉
+	post = Post.objects.filter(category=cate)[0]
+	context = {}
+	context['post'] = post
+	return render(request, 'blog/honour.html', context)
+
+
+
+def hr(request):
+	cate = get_object_or_404(Category, pk=7) #pk7对应分类招聘信息
+	post = Post.objects.filter(category=cate)[0]
+	context = {}
+	context['post'] = post
+	return render(request, 'blog/hr.html', context)

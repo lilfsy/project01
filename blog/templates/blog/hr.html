@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}人力资源{% endblock title %}
+{% block banner %} {% static 'images/ts.jpg' %} {% endblock banner %}
+{% block nav_hr_active %}active{% endblock %}
+{% block path %}
+<li class="active">人力资源</li>
+{% endblock path %}
+{% block main %}
+
+<div class="col-xs-12 col-sm-10 news-list">
+    <div class="article-title">
+        <h1 class="h2" style="text-align: center;">{{ post.title }}</h1>
+    </div>
+    <div class="article-content">
+    {{ post.body|safe }}    
+    </div>
+         
+</div>
+<div class="col-sm-2">
+    <div id="sidebar" style="width: 212px; position: relative; height: 20px;">
+    </div>
+</div>
+
+              
+{% endblock main %}

@@ -37,8 +37,24 @@
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav navbar-right">
                 	    <li class="active"><a href="">首页</a></li>
-                	    <li><a href="news">新闻</a></li>
-                	    <li><a href="product">产品</a></li>	
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">瑞新概况 <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="summary">公司简介</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="honour">企业荣誉</a></li>
+                          </ul>
+                        </li>
+                	    <li><a href="news">新闻中心</a></li>
+                	    <li><a href="hr">人力资源</a></li>
+                        <li class="dropdown">
+                          <a href="product" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品信息 <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="product">重点产品</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="product">产品介绍</a></li>
+                          </ul>
+                        </li>	
 	                </ul>
 	            </div>
 	            <!-- /.navbar-collapse -->
@@ -82,6 +98,63 @@
       </div>
 </div>					
 <!-- 轮播图 -->
+<!-- 1**** -->
+<div class="container">
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <a href="#">
+      <img src="{% static 'images/3.jpg' %}" alt="...">
+      </a>
+      <div class="caption">
+        <h4>公益行动</h4>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <a href="product">
+      <img src="{% static 'images/2.jpg' %}" alt="...">
+      </a>
+      <div class="caption">
+        <h4>产品中心</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <a href="hr"> 
+      <img src="{% static 'images/1.jpg' %}" alt="...">
+      </a>
+      <div class="caption">
+        <h4>人才理念</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- 1**** -->
+<!-- 2**** -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-7"><a href="summary"><img src="{% static 'images/11.jpg' %}" width="auto" height="192"></a></div>
+      <div class="col-md-5">
+          <h2><a href="summary">公司简介</a></h2>
+
+<p><strong>&nbsp;</strong>&nbsp;浙江瑞新药业股份有限公司2002年1月成立，为原浙江丽水浙南药业有限公司改制组成的股份有限公司。&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2002年底公司由丽水市丽阳街588号整体搬迁至丽水市天宁工业区开发路。厂区占地面积3.33万平方米........<a href="summary">查看详情</a></p>
+      </div>
+    </div>
+</div>
+<!-- 2**** -->
+<!-- 3**** -->
+<div class="container">
+<div class="page-header">
+  <h1><a href="news">新闻中心</a> <small>最近新闻</small></h1>
+</div>
+</div>
+<!-- 3**** -->
 <div class="container">
   <div class="row clearfix">
     <div class="col-md-12 column">

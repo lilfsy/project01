@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}瑞新概况{% endblock title %}
+{% block banner %} {% static 'images/ds.jpg' %} {% endblock banner %}
+{% block nav_about_active %}active{% endblock %}
+{% block path %}
+<li class="active">企业荣誉</li>
+{% endblock path %}
+{% block main %}
+
+<div class="col-xs-12 col-sm-10 news-list">
+    <div class="article-title">
+        <h1 class="h2" style="text-align: center;">{{ post.title }}</h1>
+    </div>
+    <div class="article-content">
+    {{ post.body|safe }}    
+    </div>
+         
+</div>
+<div class="col-sm-2">
+    <div id="sidebar" style="width: 212px; position: relative; height: 20px;">
+    </div>
+</div>
+
+              
+{% endblock main %}

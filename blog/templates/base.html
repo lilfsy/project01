@@ -52,8 +52,24 @@ div.ljdh {
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav navbar-right">
                 	    <li class="{% block nav_home_active %}{% endblock %}"><a href="{% url 'blog:index' %}">首页</a></li>
-                	    <li class="{% block nav_news_active %}{% endblock %}"><a href="{% url 'blog:news' %}">新闻</a></li>
-                	    <li class="{% block nav_product_active %}{% endblock %}"><a href="{% url 'blog:product' %}">产品</a></li>	
+                        <li class="dropdown {% block nav_about_active %}{% endblock %}">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">瑞新概况 <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'blog:summary' %}">公司简介</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'blog:honour' %}">企业荣誉</a></li>
+                          </ul>
+                        </li>                        
+                	    <li class="{% block nav_news_active %}{% endblock %}"><a href="{% url 'blog:news' %}">新闻中心</a></li>
+                	    <li class="{% block nav_hr_active %}{% endblock %}"><a href="{% url 'blog:hr' %}">人力资源</a></li>
+                        <li class="dropdown {% block nav_product_active %}{% endblock %}">
+                          <a href="{% url 'blog:product' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品信息 <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'blog:product' %}">重点产品</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'blog:product' %}">产品介绍</a></li>
+                          </ul>
+                        </li>                        	
 	                </ul>
 	            </div>
 	            <!-- /.navbar-collapse -->
