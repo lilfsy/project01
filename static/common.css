@@ -302,16 +302,16 @@ blockquote .quote-content{
     margin-top: -6px;
     margin-right: 10px;
 }
-#copyright{background-color: #111;}
+#copyright{background-color: #5c6679;}
 #copyright p{
     text-align: center;
     margin-top: 5px;
     margin-bottom: 3px;
     line-height: 20px;
-    color: #555;
+    color: #f5f5f5;
 }
 #copyright p a{
-    color: #555;
+    color: #f5f5f5;
 }
 #copyright p a:hover{
     text-decoration: none;
