@@ -9,8 +9,12 @@
     <title>{% block title %}{% endblock title %}</title>
 
     <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'common.css' %}">
-    <script src="{% static 'jquery-1.12.4.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'test/common_style.css' %}">
+    <link href="{% static 'test/xs_style.css' %}" rel="stylesheet" media="only screen and (max-width:768px)">
+    <link href="{% static 'test/lg_md_sm_style.css' %}" rel="stylesheet">
+    <link href="{% static 'test/animate.css' %}" rel="stylesheet">
+    <script src="{% static 'test/jquery.min.js' %}"></script>
+    <script src="{% static 'test/wap_rem.js' %}"></script>
     <script src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
 	
 </head>
@@ -35,48 +39,219 @@ div.ljdh {
 
 <body>
 <!-- 导航条 -->	
-	<div id="header">
-	    <nav class="navbar navbar-default navbar-fixed-top">
-	        <div class="container">
-	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a class="navbar-brand" style="padding:0 0 0 15px;" href="{% url 'blog:index' %}"><img alt="Brand" style="max-width:130px;" src="{% static 'images/logo.png' %}"></a>
-	            </div>
-	            <!-- Collect the nav links, forms, and other content for toggling -->
-	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	                <ul class="nav navbar-nav navbar-right">
-                	    <li class="{% block nav_home_active %}{% endblock %}"><a href="{% url 'blog:index' %}">首页</a></li>
-                        <li class="dropdown {% block nav_about_active %}{% endblock %}">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">瑞新概况 <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                            <li><a href="{% url 'blog:summary' %}">公司简介</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{% url 'blog:honour' %}">企业荣誉</a></li>
-                          </ul>
+<nav class="navbar navbar-default header-nav" id="navA">
+    <div class="container-fluid">
+        <!-- 小屏导航 -->
+        <div class="navbar-header">
+            <!--小屏导航侧边栏-->
+            <div class="index-sidebar">
+                <div class="sidebar-box">
+                    <!--小屏导航-->
+                    <ul class="menu animated fill-mode">
+                        <li>
+                            <a class="link" href="{% url 'blog:news' %}">新闻中心</a>
+                            <span class="icon glyphicon glyphicon-menu-right"></span>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:summary' %}">走进瑞新</a>
+                            <span class="icon glyphicon glyphicon-menu-right"></span>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:hr' %}">人力资源</a>
+                            <span class="icon glyphicon glyphicon-menu-right"></span>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:product' %}">产品世界</a>
+                            <span class="icon glyphicon glyphicon-menu-right"></span>
+                        </li>
+                    </ul>
+                    <!--小屏导航END-->
+                    <!--小屏子菜单导航-->
+                    <ul class="sub-menu animated fill-mode">
+                        <li class="title"><span class="back glyphicon glyphicon-menu-left"></span>新闻中心</li>
+                        <li>
+                            <a class="link" href="{% url 'blog:news' %}">公司动态</a>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:news' %}">媒体报道</a>
+                        </li>
+                    </ul>
+                    <ul class="sub-menu animated fill-mode">
+                        <li class="title"><span class="back glyphicon glyphicon-menu-left"></span>走进瑞新</li>
+                        <li>
+                            <a class="link" href="{% url 'blog:summary' %}">公司简介</a>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:honour' %}">企业荣誉</a>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:qywh' %}">企业文化</a>
                         </li>                        
-                	    <li class="{% block nav_news_active %}{% endblock %}"><a href="{% url 'blog:news' %}">新闻中心</a></li>
-                	    <li class="{% block nav_hr_active %}{% endblock %}"><a href="{% url 'blog:hr' %}">人力资源</a></li>
-                        <li class="dropdown {% block nav_product_active %}{% endblock %}">
-                          <a href="{% url 'blog:product' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品信息 <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                            <li><a href="{% url 'blog:product' %}">重点产品</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{% url 'blog:product' %}">产品介绍</a></li>
-                          </ul>
-                        </li>                        	
-	                </ul>
-	            </div>
-	            <!-- /.navbar-collapse -->
-	        </div>
-	        <!-- /.container-fluid -->
-	    </nav>
-	</div>
+                    </ul>
+                    <ul class="sub-menu animated fill-mode">
+                        <li class="title"><span class="back glyphicon glyphicon-menu-left"></span>人力资源</li>
+                        <li>
+                            <a class="link" href="{% url 'blog:hrfc' %}">员工风采</a>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:hr' %}">人才招聘</a>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:hrlx' %}">联系我们</a>
+                        </li>
+                    </ul>
+                    <ul class="sub-menu animated fill-mode">
+                        <li class="title"><span class="back glyphicon glyphicon-menu-left"></span>产品世界</li>
+                        <li>
+                            <a class="link" href="{% url 'blog:productly' %}">业务领域</a>
+                        </li>
+                        <li>
+                            <a class="link" href="{% url 'blog:product' %}">产品中心</a>
+                        </li>
+                    </ul>
+                    <!--小屏子菜单导航END-->
+                </div>
+            </div>
+            <!--小屏导航侧边栏END-->
+            <!--小屏搜索栏-->
+            <div class="header-xs-search animated fill-mode">
+                <form class="navbar-form">
+                    <div class="form-group pull-left">
+                        <input type="text" class="form-control" placeholder="请输入关键词">
+                    </div>
+                    <button type="submit" class="btn btn-default pull-right">搜索</button>
+                </form>
+            </div>
+            <!--小屏菜单按钮-->
+            <button type="button" class="right-menu-btn navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--小屏菜单按钮END-->
+            <!--小屏语言链接-->
+            <div class="language-xs dropdown visible-xs">
+                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> 语言<span class="caret"></span></a>
+                <!--语言弹出框-->
+                <ul class="dropdown-menu">
+                    <li><a href="#">中文</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+                <!--语言弹出框END-->
+            </div>
+            <!--小屏语言链接 END-->
+            <!--小屏搜索按钮-->
+            <a type="button" class="search btn btn-default visible-xs-block">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </a>
+            <!--小屏搜索按钮 END-->
+            <!--小屏logo-->
+            <a class="navbar-brand visible-xs-block" href="{% url 'blog:index' %}">
+                <img class="header-nav-img-2" src="{% static 'images/logo.png' %}">
+            </a>
+            <!--小屏logo END-->
+        </div>
+        <!-- 小屏导航END -->
+        <!-- 大屏导航 -->
+        <div class="collapse navbar-collapse nav-content-lg-box">
+            <!--滚动logo-->
+            <a class="navbar-brand scroll-logo" href="{% url 'blog:index' %}">
+                <img class="header-nav-img-2" src="{% static 'images/logo.png' %}">
+            </a>
+            <!--大屏LOGO-->
+            <a class="navbar-brand hidden-xs" href="{% url 'blog:index' %}">
+                <img src="{% static 'images/logo1.png' %}">
+            </a>
+            <!--语言选择&搜索-->
+            <ul class="header-nav-top-btns nav navbar-nav navbar-right hidden-xs">
+                <!--搜索弹出-->
+                <li class="search-form">
+                    <form class="navbar-form row">
+                        <div class="form-group col-xs-9">
+                        <input id="keywords" name="keywords" class="form-control" type="text" onkeydown="if(event.keyCode==13){SiteSearch(&#39;/search.html&#39;, &#39;#keywords&#39;);return false};" placeholder="输入回车搜索" x-webkit-speech="">
+                        </div>
+                        <input class="btn btn-default col-xs-3 hidden-xs" type="submit" onclick="SiteSearch(&#39;/search.html&#39;, &#39;#keywords&#39;);" value="搜索">
+                    </form>
+                </li>
+                <!--搜索按钮-->
+                <li class="search-btn left-top-btns">
+                    <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 搜索</a>
+                </li>
+                <!--语言-->
+                <li class="dropdown left-top-btns">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> 语言<span class="caret"></span></a>
+                    <!--语言弹出框-->
+                    <ul class="dropdown-menu">
+                        <li><a href="#">中文</a></li>
+                        <li><a href="#">English</a></li>
+                    </ul>
+                </li>
+            </ul>
+             <!--导航栏内容-->
+            <ul class="nav-lg-content hidden-xs nav-pills">
+
+                <li id="RLZY" class="{% block nav_hr_active %}{% endblock %}">
+                    <a href="{% url 'blog:hr' %}">人力资源</a>
+                    <!--子菜单弹出层-->
+                    <div class="sub-menu width-1" style="left: -236px">
+                        <ol class="text-link-box">
+                            <li>
+                                <a href ="{% url 'blog:hrfc' %}">员工风采</a>
+                                <a href ="{% url 'blog:hr' %}">人才招聘</a>
+                                <a href ="{% url 'blog:hrlx' %}">联系我们</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>                
+                <li id="YPXX" class="{% block nav_product_active %}{% endblock %}">
+                    <a href="{% url 'blog:product' %}">产品世界</a>
+                    <!--子菜单弹出层-->
+                    <div class="sub-menu width-1">
+                        <ol class="text-link-box">
+                            <li>
+                                <a href ="{% url 'blog:productly' %}">业务领域</a>
+                                <a href ="{% url 'blog:product' %}">产品中心</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>                
+
+                <li id="XWZX" class="{% block nav_news_active %}{% endblock %}">
+                    <a href="{% url 'blog:news' %}">新闻中心</a>
+                    <!--子菜单弹出层-->
+                    <div class="sub-menu width-1">
+                        <ol class="text-link-box">
+                            <li>
+                                <a href="{% url 'blog:news' %}">公司动态</a>
+                                <a href="{% url 'blog:news' %}">媒体报道</a>
+                            </li>
+                        </ol>
+                        <img class="img-box" src="{% static 'images/nav_img_01.jpg' %}">
+                    </div>
+                </li>
+                <li id="HRGK" class="{% block nav_about_active %}{% endblock %}">
+                    <a href="{% url 'blog:summary' %}">走进瑞新</a>
+                    <!--子菜单弹出层-->
+                    <div class="sub-menu width-2">
+                        <ol class="text-link-box">
+                            <li>
+                                <a href="{% url 'blog:summary' %}">公司简介</a>
+                                <a href="{% url 'blog:honour' %}">企业荣誉</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'blog:qywh' %}">企业文化</a>
+                                <!--<a href="/company_manufacture.html">生产基地</a>
+                                <a href="/company_PPT.html">公司介绍PPT</a>-->
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li id="INDEX" class="{% block nav_home_active %}{% endblock %}"><a href="{% url 'blog:index' %}">首页</a></li>
+            </ul>
+        </div><!-- 大屏导航 END -->
+    </div><!-- /.container-fluid -->
+</nav>
 <!-- 导航条 --> 
 <div class="jumbotron banner4">
   <div class="container">
@@ -104,39 +279,53 @@ div.ljdh {
     </div>
 <!-- mainbody -->
 <!-- 通用页脚 -->
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 footer-item">
-                    <div class="footer-list">
-                        <h4>友情链接</h4>
-                        <ul>
-                            <li><a href="http://samr.saic.gov.cn/">国家食品药品监督管理总局</a></li>
-                            <li><a href="http://www.zjfda.gov.cn/">浙江省食品药品监督管理局 </a></li>
-                            <li><a href="http://www.nhfpc.gov.cn/">国家卫计委 </a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 footer-item footer-item-last">
-                    <div class="footer-contact">
-                        <h2>电话：************</h2>
-                        <h2>邮箱：************</h2>
-                        <h2>地址：************</h2>
-                    </div>
-                </div>
+    <div class="footer-box">
+        <div class="top">
+            <!--产品中心、科研创新、快速通道-->
+            <ul class="internal-link-box pull-left hidden-xs">
+                <li>
+                    <h2 style="margin-top: 0">走进瑞新</h2>
+                    <a href="{% url 'blog:summary' %}">企业简介</a> <a href="{% url 'blog:qywh' %}">企业文化</a> <a href="{% url 'blog:honour' %}">企业荣誉</a>
+                </li>
+                <li>
+                    <h2>快速通道</h2>
+                    <a href="{% url 'blog:hrlx' %}">公司邮箱</a> <a href="{% url 'blog:hr' %}">人才招聘</a><a href="{% url 'blog:product' %}">产品中心</a><a href="{% url 'blog:news' %}">公司新闻</a> <a href="">投资者关系</a> 
+                </li>
+
+            </ul>
+            <!--公司信息-->
+            <div class="pull-right company-information hidden-xs">
+                
+                <p>
+                    服务热线：0578-2268782</p>
+                <p>
+                    公司地址：浙江省丽水市莲都区天宁工业区168号</p>
+                <p>
+                    邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：323000</p>
+            </div>
+            <!-- 友情链接 -->
+            <div class="btn-group friendship-link dropup">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    友情链接 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a target="_blank" href="http://samr.saic.gov.cn/">国家食品药品监督管理总局</a></li>
+                    <li><a target="_blank" href="http://www.zjfda.gov.cn/">浙江省食品药品监督管理局</a></li>
+                    <li><a target="_blank" href="http://www.nhfpc.gov.cn/">国家卫计委</a></li>
+
+                </ul>
+            </div>
+            <div class="weixin pull-left hidden-xs">
+                <img src="{% static 'images/logo.png' %}" alt="">
             </div>
         </div>
-    </div>
-    <div id="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <p>Copyright © ******************************** <a target="_blank" href="#">备案号******</a></p>
-                </div>
-            </div>
+        <div class="bottom">
+            浙江瑞新药业股份有限公司Copyright2018 All rights reserved  <a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备18049271号-1</a> 
+
         </div>
     </div>
 <!-- 通用页脚 -->
-
+<script src="{% static 'test/wow.min.js' %}"></script>
+<script src="{% static 'test/mine.js' %}"></script>
 </body>
 </html>

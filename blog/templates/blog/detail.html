@@ -1,47 +1,70 @@
-{% extends 'base.html' %}
+{% extends 'basex.html' %}
 {% load staticfiles %}
 {% block title %}新闻中心{% endblock title %}
 {% block banner %} {% static 'images/timg1.jpg' %} {% endblock banner %}
 {% block nav_news_active %}active{% endblock %}
-{% block path %}
-<li><a href="{% url 'blog:news' %}">新闻中心</a></li>
-<li class="active">正文</li>
-{% endblock path %}
+
 {% block main %}
-
-<div class="col-xs-12 col-sm-10 news-list">
-    <div class="article-title">
-        <h1 class="h2" style="text-align: center;">{{ post.title }}</h1>
-    </div>
-    <div class="article-content">
-    {{ post.body|safe }}    
-    </div>
-    <!-- 上下篇 --> 
-    <div class="article-footer">
-        <ul class="pager">
-            <li class="previous">
-                {% if previous_post %}
-                    <a href="{{ previous_post.get_absolute_url }}" title="{{ previous_post.title }}">← 上一篇</a>
-                {% else %}
-                   
-                {% endif %}
-            </li>
-            <li style="line-height: 32px;">{{ post.created_time|date:"Y M d" }}</li>
-            <li class="next">
-                {% if next_post %}
-                    <a href="{{ next_post.get_absolute_url }}" title="{{ next_post.title }}">下一篇 →</a>
-                {% else %}
-
-                {% endif %}
-            </li>
+    <!--居中内容-->
+    <div class="middle-content row">
+        <!--列表页侧边栏导航-->
+        <ul class="listPage-sidebar col-sm-3">
+            <li class="title col-sm-12 col-xs-12 hidden-xs">新闻资讯</li>
+            <li class="link col-sm-12 col-xs-4 active"><a href="{% url 'blog:news' %}">公司动态</a></li>
+            <li class="link col-sm-12 col-xs-4 "><a href="{% url 'blog:news' %}">媒体报道</a></li>
         </ul>
-    </div>  
-        <!-- 上下篇 -->           
-</div>
-<div class="col-sm-2">
-    <div id="sidebar" style="width: 212px; position: relative; height: 20px;">
+        <!--列表页侧边栏导航 END-->
+        <!--列表内容-->
+        <div class="listPage-content col-sm-9">
+            <div class="title hidden-xs col-sm-12">
+                <h2 class="pull-left col-sm-6">
+                    新闻资讯</h2>
+                <ol class="breadcrumb col-sm-6 pull-right">
+                    <li>您当前的位置：</li>
+                    <li><a href="{% url 'blog:index' %}">首页</a></li>
+                    <li><a href="{% url 'blog:news' %}">公司动态</a></li>
+                    <li class="active">正文</li>
+                </ol>
+            </div>
+            <div class="brief list-box">
+                <div class="article-title">
+                    <h1 class="h2" style="text-align: center;">{{ post.title }}</h1>
+                </div>
+                <div class="article-content">
+                {{ post.body|safe }}    
+                </div>
+            </div>
+            <!-- 上下篇 --> 
+            <div class="article-footer">
+                <ul class="pager">
+                    <li class="previous">
+                        {% if previous_post %}
+                            <a href="{{ previous_post.get_absolute_url }}" title="{{ previous_post.title }}">← 上一篇</a>
+                        {% else %}
+                           
+                        {% endif %}
+                    </li>
+                    <li style="line-height: 32px;">{{ post.created_time|date:"Y M d" }}</li>
+                    <li class="next">
+                        {% if next_post %}
+                            <a href="{{ next_post.get_absolute_url }}" title="{{ next_post.title }}">下一篇 →</a>
+                        {% else %}
+
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>  
+                <!-- 上下篇 -->            
+        </div>
+        <!--列表内容 END-->
+         
+        <!--分页-->
     </div>
-</div>
+    <!--居中内容 END-->
+
+
+          
+
 
               
 {% endblock main %}

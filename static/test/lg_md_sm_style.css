@@ -1,0 +1,118 @@
+@charset "utf-8";
+/*大屏幕到平板(768px ≤ 视窗宽度)*/
+@media (min-width: 768px){
+    .nav-content{
+        margin-top: 48px;
+    }
+    .container-fluid>.navbar-collapse.nav-content-lg-box{
+        position: relative;
+        width: 1100px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .navbar-default .navbar-nav>li.left-top-btns>a {
+        color: #0082fe;
+    }
+
+    .search-form{
+        border-radius:4px;
+        border: 1px solid rgba(0,0,0,.15);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    }
+    .search-form form{
+        padding-left:0;
+    }
+    .search-form .navbar-form .form-control{
+        font-size: 12px;
+        height: 31px;
+    }
+
+    .search-form .btn-default{
+        font-size: 12px;
+    }
+    .nav-lg-content>li:hover{
+        background-color: #0082fe;
+        text-decoration:none;
+    }
+    .nav-lg-content>li:hover>a{
+        color: #ffffff;
+    }
+
+    .nav-lg-content .sub-menu {
+        display: none;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.3);
+        position: absolute;
+        left:0;
+        top: 40px;
+        height: 190px;
+        z-index: 101;
+        padding-left: 20px;
+        overflow: hidden;
+    }
+    .nav-lg-content.nav-pills>li+li{
+        margin-left: 0;
+    }
+    .sub-menu .text-link-box{
+        float: left;
+        display: inline-block;
+    }
+    .sub-menu .text-link-box>li{
+        width: 100px;
+        float: left;
+        height: 190px;
+        padding: 15px 0;
+    }
+    .sub-menu .text-link-box>li>a{
+        padding: 0;
+        border: 0;
+        display:block;
+        line-height: 40px;
+        height: 40px;
+        text-align: left;
+        font-size: 12px;
+        width: 100%;
+        color: #333333;
+    }
+    .sub-menu .text-link-box>li>a:hover{
+        color: #0082fe;
+        text-decoration: none;
+    }
+    .sub-menu .img-box{
+        float: right;
+        width: 190px;
+        height: 190px;
+    }
+    .sub-menu.width-1{
+        width: 320px;
+    }
+    .sub-menu.width-2{
+        width: 420px;
+    }
+    .sub-menu.fadeIn{
+        display: block;
+    }
+
+    .product-box{
+        width: 100%;
+        margin: 0;
+    }
+    .product-box .tab-menu.nav-tabs>li>a{
+        border: none;
+        margin: 0;
+        border-radius: 0;
+        text-align: center;
+        height: 92px;
+        line-height: 92px;
+        padding: 0;
+        font-size: 16px;
+        color: #4d4d4d;
+    }
+    .product-box .tab-menu{
+        height:276px;
+        background-color: #ffffff;
+    }
+
+
+
+}

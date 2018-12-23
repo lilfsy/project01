@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}新闻中心{% endblock title %}
+{% block banner %} {% static 'images/timg1.jpg' %} {% endblock banner %}
+{% block nav_news_active %}active{% endblock %}
+{% block path %}
+<li><a href="{% url 'blog:news' %}">新闻中心</a></li>
+<li class="active">正文</li>
+{% endblock path %}
+{% block main %}
+
+<div class="col-xs-12 col-sm-10 news-list">
+    <div class="article-title">
+        <h1 class="h2" style="text-align: center;">{{ post.title }}</h1>
+    </div>
+    <div class="article-content">
+    {{ post.body|safe }}    
+    </div>
+    <!-- 上下篇 --> 
+    <div class="article-footer">
+        <ul class="pager">
+            <li class="previous">
+                {% if previous_post %}
+                    <a href="{{ previous_post.get_absolute_url }}" title="{{ previous_post.title }}">← 上一篇</a>
+                {% else %}
+                   
+                {% endif %}
+            </li>
+            <li style="line-height: 32px;">{{ post.created_time|date:"Y M d" }}</li>
+            <li class="next">
+                {% if next_post %}
+                    <a href="{{ next_post.get_absolute_url }}" title="{{ next_post.title }}">下一篇 →</a>
+                {% else %}
+
+                {% endif %}
+            </li>
+        </ul>
+    </div>  
+        <!-- 上下篇 -->           
+</div>
+<div class="col-sm-2">
+    <div id="sidebar" style="width: 212px; position: relative; height: 20px;">
+    </div>
+</div>
+
+              
+{% endblock main %}

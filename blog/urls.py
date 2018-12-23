@@ -9,5 +9,9 @@ urlpatterns = [
     url(r'^summary/$',views.summary,name='summary'),
     url(r'^honour/$',views.honour,name='honour'),
     url(r'^hr/$',views.hr,name='hr'),
-
+    url(r'^indexo/$',views.indexo,name='indexo'),
+    url(r'^hrlxwm/$',views.hrlx,name='hrlx'),
+    url(r'^hrygfc/$',views.hrfc,name='hrfc'), 
+    url(r'^productly/$',views.productly,name='productly'),
+    url(r'^qywh/$',views.qywh,name='qywh'),           
 ]

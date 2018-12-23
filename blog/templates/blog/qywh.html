@@ -10,9 +10,9 @@
         <!--列表页侧边栏导航-->
         <ul class="listPage-sidebar col-sm-3">
             <li class="title col-sm-12 col-xs-12 hidden-xs">公司概况</li>
-            <li class="link col-sm-12 col-xs-4 active"><a href="{% url 'blog:honour' %}">企业荣誉</a></li>
+            <li class="link col-sm-12 col-xs-4"><a href="{% url 'blog:honour' %}">企业荣誉</a></li>
             <li class="link col-sm-12 col-xs-4"><a href="{% url 'blog:summary' %}">公司简介</a></li>
-            <li class="link col-sm-12 col-xs-4"><a href="{% url 'blog:qywh' %}">企业文化</a></li>
+            <li class="link col-sm-12 col-xs-4 active"><a href="{% url 'blog:qywh' %}">企业文化</a></li>
         </ul>
         <!--列表页侧边栏导航 END-->
         <!--列表内容-->
@@ -24,7 +24,7 @@
                     <li>您当前的位置：</li>
                     <li><a href="{% url 'blog:index' %}">首页</a></li>
                     <li><a href="{% url 'blog:summary' %}">公司概况</a></li>
-                    <li class="active">企业荣誉</li>
+                    <li class="active">企业文化</li>
                 </ol>
             </div>
             <div class="brief list-box">

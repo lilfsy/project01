@@ -1,30 +1,28 @@
 {% extends 'basex.html' %}
 {% load staticfiles %}
-{% block title %}瑞新概况{% endblock title %}
-{% block banner %} {% static 'images/ds.jpg' %} {% endblock banner %}
-{% block nav_about_active %}active{% endblock %}
+{% block title %}业务领域{% endblock title %}
+{% block banner %} {% static 'images/banner5.jpg' %} {% endblock banner %}
+{% block nav_product_active %}active{% endblock %}
 
 {% block main %}
     <!--居中内容-->
     <div class="middle-content row">
         <!--列表页侧边栏导航-->
         <ul class="listPage-sidebar col-sm-3">
-            <li class="title col-sm-12 col-xs-12 hidden-xs">公司概况</li>
-            <li class="link col-sm-12 col-xs-4 active"><a href="{% url 'blog:honour' %}">企业荣誉</a></li>
-            <li class="link col-sm-12 col-xs-4"><a href="{% url 'blog:summary' %}">公司简介</a></li>
-            <li class="link col-sm-12 col-xs-4"><a href="{% url 'blog:qywh' %}">企业文化</a></li>
+            <li class="title col-sm-12 col-xs-12 hidden-xs">产品世界</li>
+            <li class="link col-sm-12 col-xs-4"><a href="{% url 'blog:product' %}">产品中心</a></li>
+            <li class="link col-sm-12 col-xs-4 active"><a href="{% url 'blog:productly' %}">业务领域</a></li>
         </ul>
         <!--列表页侧边栏导航 END-->
         <!--列表内容-->
         <div class="listPage-content col-sm-9">
             <div class="title hidden-xs col-sm-12">
                 <h2 class="pull-left col-sm-6">
-                    公司概况</h2>
+                    业务领域</h2>
                 <ol class="breadcrumb col-sm-6 pull-right">
                     <li>您当前的位置：</li>
                     <li><a href="{% url 'blog:index' %}">首页</a></li>
-                    <li><a href="{% url 'blog:summary' %}">公司概况</a></li>
-                    <li class="active">企业荣誉</li>
+                    <li class="active">业务领域</li>
                 </ol>
             </div>
             <div class="brief list-box">
